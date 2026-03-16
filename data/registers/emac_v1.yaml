@@ -205,9 +205,9 @@ fieldset/MACCR:
     bit_offset: 13
     bit_size: 1
   - name: FES
-    description: Fast Ethernet speed (1 = 100 Mbps, 0 = 10 Mbps)
+    description: "Ethernet speed: 00=10M, 01=100M, 10=1G, 11=reserved"
     bit_offset: 14
-    bit_size: 1
+    bit_size: 2
   - name: CSD
     description: Carrier sense disable
     bit_offset: 16
@@ -723,10 +723,9 @@ fieldset/DMASR:
     bit_size: 1
     access: Read
   - name: IPLS
-    description: 10M PHY physical layer variation
+    description: 10M PHY physical layer status (write 1 to clear)
     bit_offset: 31
     bit_size: 1
-    access: Read
 
 fieldset/DMAOMR:
   description: Ethernet DMA operation mode register
@@ -842,6 +841,10 @@ fieldset/DMAIER:
   - name: NISE
     description: Normal interrupt summary enable
     bit_offset: 16
+    bit_size: 1
+  - name: IPLE
+    description: 10M PHY link status change interrupt enable
+    bit_offset: 31
     bit_size: 1
 
 fieldset/DMAMFBOCR:
